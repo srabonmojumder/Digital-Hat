@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ProductImage } from "@/components/ui/ProductImage";
 
@@ -16,17 +16,29 @@ export function ProductGallery({
   count: number;
 }) {
   const [active, setActive] = useState(0);
+  const zoomRef = useRef<HTMLDivElement>(null);
   const thumbs = Array.from({ length: Math.max(1, count) }, (_, i) => i);
+
+  // Move the zoom origin to the cursor (no re-render — set CSS vars on the node).
+  function handleZoom(e: React.MouseEvent<HTMLDivElement>) {
+    const el = zoomRef.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty("--zoom-x", `${((e.clientX - r.left) / r.width) * 100}%`);
+    el.style.setProperty("--zoom-y", `${((e.clientY - r.top) / r.height) * 100}%`);
+  }
 
   return (
     <div>
-      <div className="galMain">
+      <div className="galMain" ref={zoomRef} onMouseMove={handleZoom}>
         <ProductImage
           seed={seed}
           category={category}
           name={name}
           variant={active}
           className="galMainImg"
+          priority
+          sizes="(max-width: 1024px) 100vw, 600px"
         />
       </div>
 

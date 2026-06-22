@@ -12,12 +12,16 @@ export function ProductImage({
   name,
   variant = 0,
   className = "",
+  priority = false,
+  sizes = "(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw",
 }: {
   seed: number;
   category: string;
   name: string;
   variant?: number;
   className?: string;
+  priority?: boolean;
+  sizes?: string;
 }) {
   const idx = ((seed + variant) % 3) + 1;
   const src = `/products/${category}-${idx}.jpg`;
@@ -28,8 +32,9 @@ export function ProductImage({
         src={src}
         alt={name}
         fill
-        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+        sizes={sizes}
         className="pimgPhoto"
+        priority={priority}
       />
     </div>
   );

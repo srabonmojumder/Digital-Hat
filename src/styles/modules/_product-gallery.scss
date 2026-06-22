@@ -2,17 +2,19 @@
 
 .gal {
   &Main {
+    position: relative;
     overflow: hidden;
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     cursor: zoom-in;
 
-    // Zoom the photo in on hover.
+    // Magnifier zoom that follows the cursor (origin set via JS on mousemove).
     .pimgPhoto {
-      transition: transform 0.45s ease;
+      transition: transform 0.2s ease;
+      transform-origin: var(--zoom-x, 50%) var(--zoom-y, 50%);
     }
     &:hover .pimgPhoto {
-      transform: scale(1.12);
+      transform: scale(1.9);
     }
   }
   &MainImg {
