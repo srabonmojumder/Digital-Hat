@@ -1,0 +1,29 @@
+/* Back-to-top floating button. */
+.toTop {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-brand);
+  color: #fff;
+  box-shadow: var(--shadow-lg);
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+
+  &:hover {
+    background: var(--color-brand-dark);
+    transform: translateY(-2px);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}

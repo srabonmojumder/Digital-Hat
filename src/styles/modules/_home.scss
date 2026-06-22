@@ -54,18 +54,15 @@
   &FeatureTitle {
     font-size: 14px;
     font-weight: 600;
+    line-height: 1.25;
     color: var(--foreground);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
   &FeatureSub {
+    margin-top: 2px;
     font-family: var(--font-bn);
     font-size: 12px;
+    line-height: 1.3;
     color: var(--foreground-soft);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   &Tail {

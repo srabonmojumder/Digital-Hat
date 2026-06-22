@@ -5,6 +5,7 @@ import { Providers } from "@/components/Providers";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import { site } from "@/lib/site";
 
 const poppins = Poppins({
@@ -44,6 +45,7 @@ export default function RootLayout({
           <Header />
           <main className="siteMain">{children}</main>
           <Footer />
+          <ScrollToTop />
         </Providers>
       </body>
     </html>
