@@ -1,56 +1,15 @@
 /* ============================================================
-   Product image placeholder — gradient + faint category icon.
-   Size is supplied by the caller (e.g. .pcMediaImg, .clImg).
+   Product image — real photo filling its sized container.
+   The caller supplies the size class (.pcMediaImg, .galMainImg, .clImg…);
+   next/image renders with `fill`, so .pimg just needs to be positioned.
    ============================================================ */
 
 .pimg {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
-
-  &Icon {
-    width: 33%;
-    height: 33%;
-    color: rgba(2, 8, 23, 0.08);
-  }
-
-  &Mark {
-    position: absolute;
-    right: 12px;
-    bottom: 8px;
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: rgba(2, 8, 23, 0.2);
-    pointer-events: none;
-  }
+  background: var(--color-cream);
 }
 
-/* Deterministic gradient variants */
-.pimg--g0 {
-  background: linear-gradient(135deg, #f5f5f4, #e7e5e4);
-}
-.pimg--g1 {
-  background: linear-gradient(135deg, #fffbeb, #ffedd5);
-}
-.pimg--g2 {
-  background: linear-gradient(135deg, #f5f5f5, #e4e4e7);
-}
-.pimg--g3 {
-  background: linear-gradient(135deg, #fff1f2, #fee2e2);
-}
-.pimg--g4 {
-  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-}
-.pimg--g5 {
-  background: linear-gradient(135deg, #ecfdf5, #ccfbf1);
-}
-.pimg--g6 {
-  background: linear-gradient(135deg, #f0f9ff, #e0e7ff);
-}
-.pimg--g7 {
-  background: linear-gradient(135deg, #fefce8, #fef3c7);
+.pimgPhoto {
+  object-fit: cover;
 }

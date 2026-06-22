@@ -1,41 +1,11 @@
-import type { ComponentType } from "react";
-import {
-  Gift,
-  Headphones,
-  KeyRound,
-  Ribbon,
-  Shirt,
-  ShoppingBag,
-  SprayCan,
-  Wallet,
-} from "lucide-react";
+import Image from "next/image";
 
 /**
- * Deterministic, network-free placeholder artwork for the prototype.
- * Gradient (8 variants) + a faint category icon. Sizing comes from the
- * caller's className (e.g. .pcMediaImg, .clImg, .galMainImg).
+ * Product photo. Dummy images live in /public/products/{category}-{1..3}.jpg.
+ * A product picks one of its category's 3 images deterministically (by seed),
+ * and the gallery varies them via `variant`. Sizing comes from the caller's
+ * className (e.g. .pcMediaImg, .galMainImg, .clImg).
  */
-
-const ICONS: Record<string, ComponentType<{ className?: string }>> = {
-  panjabi: Shirt,
-  "eid-collection": Shirt,
-  shirt: Shirt,
-  "luxury-shirt": Shirt,
-  "t-shirt": Shirt,
-  "trousers-pajama": Shirt,
-  jacket: Shirt,
-  wallets: Wallet,
-  "long-wallets": Wallet,
-  "mini-wallets": Wallet,
-  "women-leather": ShoppingBag,
-  belts: Ribbon,
-  "key-ring": KeyRound,
-  "gift-combos": Gift,
-  cap: ShoppingBag,
-  "gadget-hub": Headphones,
-  perfume: SprayCan,
-};
-
 export function ProductImage({
   seed,
   category,
@@ -49,14 +19,18 @@ export function ProductImage({
   variant?: number;
   className?: string;
 }) {
-  const Icon = ICONS[category] ?? ShoppingBag;
-  const gradient = (seed + variant) % 8;
+  const idx = ((seed + variant) % 3) + 1;
+  const src = `/products/${category}-${idx}.jpg`;
 
   return (
-    <div className={`pimg pimg--g${gradient} ${className}`.trim()}>
-      <Icon className="pimgIcon" />
-      <span className="pimgMark">Digital Hat</span>
-      <span className="srOnly">{name}</span>
+    <div className={`pimg ${className}`.trim()}>
+      <Image
+        src={src}
+        alt={name}
+        fill
+        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+        className="pimgPhoto"
+      />
     </div>
   );
 }
