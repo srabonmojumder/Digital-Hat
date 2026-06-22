@@ -1,0 +1,22 @@
+// Abstracts — compile-time SCSS tokens (Sass maps).
+//
+// Runtime design tokens (colours, shadows, radii, spacing) are CSS custom
+// properties declared in `globals.scss` `:root`. Brand colours come from
+// Tailwind's `@theme` (src/app/globals.css), exposed as `--color-*` vars.
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+$z-layers: (
+  dropdown: 1000,
+  sticky: 1020,
+  fixed: 1030,
+  modal-backdrop: 1040,
+  modal: 1050,
+  tooltip: 1080,
+);

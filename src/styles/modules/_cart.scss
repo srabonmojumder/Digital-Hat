@@ -1,0 +1,88 @@
+@use "../abstracts/mixins" as m;
+
+/* ============================================================ Cart page */
+
+.cart {
+  &Title {
+    margin-top: 24px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--foreground);
+  }
+
+  &Loading {
+    margin-top: 32px;
+    font-size: 14px;
+    color: var(--foreground-soft);
+  }
+
+  &Layout {
+    margin-top: 32px;
+    display: grid;
+    gap: 32px;
+
+    @include m.respond(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &Main {
+    @include m.respond(lg) {
+      grid-column: span 2;
+    }
+  }
+
+  &List {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 0 16px;
+
+    > * + * {
+      border-top: 1px solid var(--border);
+    }
+  }
+
+  &Continue {
+    margin-top: 16px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-brand);
+    &:hover {
+      color: var(--color-brand-dark);
+    }
+  }
+
+  &Summary {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+  }
+  &SummaryTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--foreground);
+  }
+  &Row {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+  }
+  &RowLabel {
+    color: var(--foreground-soft);
+  }
+  &RowValue {
+    font-weight: 600;
+    color: var(--foreground);
+  }
+  &Note {
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--foreground-soft);
+  }
+  &Checkout {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,33 @@
+@use "../abstracts/mixins" as m;
+
+/* ============================================================ Static / policy pages */
+
+.staticPage {
+  max-width: 56rem;
+  margin-inline: auto;
+  padding: 24px 16px;
+
+  &Title {
+    margin-top: 24px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--foreground);
+
+    @include m.respond(sm) {
+      font-size: 30px;
+    }
+  }
+
+  &Accent {
+    display: block;
+    margin-top: 8px;
+    width: 48px;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--color-brand);
+  }
+
+  &Body {
+    margin-top: 24px;
+  }
+}

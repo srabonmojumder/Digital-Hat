@@ -1,0 +1,44 @@
+/* ============================================================
+   Form controls — shared inputs / textareas / labels.
+   ============================================================ */
+
+.input,
+.textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  color: var(--foreground);
+  outline: none;
+  transition: border-color var(--transition-fast);
+
+  &::placeholder {
+    color: var(--foreground-soft);
+  }
+  &:focus {
+    border-color: var(--color-brand);
+  }
+}
+
+.input {
+  height: 44px;
+  padding: 0 14px;
+}
+
+.textarea {
+  padding: 10px 14px;
+  resize: vertical;
+}
+
+.label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+/* Required-field asterisk */
+.req {
+  color: var(--color-brand);
+}

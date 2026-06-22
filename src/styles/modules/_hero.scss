@@ -1,0 +1,140 @@
+@use "../abstracts/mixins" as m;
+
+/* ============================================================ Hero carousel */
+
+.hero {
+  position: relative;
+
+  &Viewport {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+  }
+  &Track {
+    display: flex;
+  }
+  &Slide {
+    min-width: 0;
+    flex: 0 0 100%;
+  }
+
+  &Pane {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 260px;
+    padding: 48px 24px;
+
+    @include m.respond(sm) {
+      min-height: 360px;
+      padding: 48px;
+    }
+    @include m.respond(lg) {
+      min-height: 440px;
+    }
+
+    &--g0 {
+      background: linear-gradient(135deg, #ffe4e6, #fff1f2 50%, #fef3c7);
+    }
+    &--g1 {
+      background: linear-gradient(135deg, #fef3c7, #fff7ed 50%, #e7e5e4);
+    }
+    &--g2 {
+      background: linear-gradient(135deg, #d1fae5, #f0fdfa 50%, #e0f2fe);
+    }
+  }
+
+  &Content {
+    max-width: 36rem;
+  }
+  &Eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-brand);
+    @include m.respond(sm) {
+      font-size: 14px;
+    }
+  }
+  &Title {
+    margin-top: 12px;
+    font-family: var(--font-bn);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--foreground);
+    @include m.respond(sm) {
+      font-size: 36px;
+    }
+    @include m.respond(lg) {
+      font-size: 48px;
+    }
+  }
+  &Sub {
+    margin-top: 12px;
+    max-width: 28rem;
+    font-size: 14px;
+    color: rgba(2, 8, 23, 0.7);
+    @include m.respond(sm) {
+      font-size: 16px;
+    }
+  }
+  &Cta {
+    margin-top: 24px;
+    display: inline-flex;
+  }
+
+  &Arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--foreground);
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(4px);
+    transition: background-color var(--transition-fast);
+    &:hover {
+      background: #fff;
+    }
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &--prev {
+      left: 12px;
+    }
+    &--next {
+      right: 12px;
+    }
+  }
+
+  &Dots {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+  &Dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 999px;
+    background: rgba(2, 8, 23, 0.3);
+    transition: all 0.2s ease;
+
+    &--active {
+      width: 24px;
+      background: var(--color-brand);
+    }
+  }
+}

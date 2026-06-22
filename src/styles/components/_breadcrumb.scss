@@ -1,0 +1,56 @@
+/* ============================================================
+   Breadcrumb — trail + "Back To Home" link.
+   ============================================================ */
+
+.crumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  &Nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: var(--foreground-soft);
+  }
+
+  &Item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    a {
+      color: inherit;
+      transition: color var(--transition-fast);
+      &:hover {
+        color: var(--color-brand);
+      }
+    }
+  }
+
+  &Current {
+    font-weight: 500;
+    color: var(--foreground);
+  }
+
+  &Sep {
+    width: 14px;
+    height: 14px;
+    color: rgba(100, 116, 139, 0.6);
+  }
+
+  &Back {
+    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-brand);
+    transition: color var(--transition-fast);
+    &:hover {
+      color: var(--color-brand-dark);
+    }
+  }
+}

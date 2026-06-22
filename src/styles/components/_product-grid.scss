@@ -1,0 +1,20 @@
+@use "../abstracts/mixins" as m;
+
+/* ============================================================ Product grid + section */
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+
+  @include m.respond(sm) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include m.respond(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.catSection {
+  padding: 24px 0;
+}

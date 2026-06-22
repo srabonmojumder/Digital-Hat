@@ -1,0 +1,61 @@
+/* ============================================================
+   Quantity stepper — − [value] +
+   ============================================================ */
+
+.qty {
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  &Btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--foreground);
+    transition: background-color var(--transition-fast);
+
+    &:hover {
+      background: var(--color-cream);
+    }
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.4;
+    }
+  }
+
+  &Value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Sizes */
+  &--sm {
+    .qtyBtn {
+      width: 32px;
+      height: 32px;
+    }
+    .qtyValue {
+      width: 32px;
+      font-size: 14px;
+      align-self: stretch;
+    }
+  }
+  &--md {
+    .qtyBtn {
+      width: 40px;
+      height: 40px;
+    }
+    .qtyValue {
+      width: 48px;
+      font-size: 16px;
+      align-self: stretch;
+    }
+  }
+}

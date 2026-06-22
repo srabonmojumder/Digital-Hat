@@ -1,0 +1,40 @@
+/* ============================================================
+   Price — current price (+ struck old price when on sale).
+   ============================================================ */
+
+.price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+
+  .priceNow {
+    font-weight: 700;
+    color: var(--foreground);
+  }
+
+  .priceNow--sale {
+    color: var(--color-brand);
+  }
+
+  .priceOld {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-strike);
+    text-decoration: line-through;
+  }
+}
+
+/* Size modifiers drive the current-price scale */
+.price--sm .priceNow {
+  font-size: 14px;
+}
+.price--md .priceNow {
+  font-size: 16px;
+}
+.price--lg .priceNow {
+  font-size: 20px;
+}
+.price--xl .priceNow {
+  font-size: 24px;
+}

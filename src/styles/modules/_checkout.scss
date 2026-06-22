@@ -1,0 +1,285 @@
+@use "../abstracts/mixins" as m;
+
+/* ============================================================ Checkout */
+
+.co {
+  &Heading {
+    margin-top: 24px;
+    font-family: var(--font-bn);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--foreground);
+    @include m.respond(sm) {
+      font-size: 24px;
+    }
+  }
+
+  &Grid {
+    margin-top: 24px;
+    display: grid;
+    gap: 32px;
+    align-items: start;
+    @include m.respond(lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &Panel {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    @include m.respond(sm) {
+      padding: 24px;
+    }
+  }
+  &PanelTitle {
+    font-family: var(--font-bn);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--foreground);
+  }
+
+  &Fields {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &Areas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  &Area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    cursor: pointer;
+    transition:
+      border-color var(--transition-fast),
+      background-color var(--transition-fast);
+
+    &--active {
+      border-color: var(--color-brand);
+      background: rgba(255, 0, 0, 0.05);
+    }
+  }
+  &AreaName {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: var(--foreground);
+    input {
+      accent-color: var(--color-brand);
+    }
+  }
+  &AreaCharge {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--foreground-soft);
+  }
+
+  &Right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &Lines {
+    margin-top: 8px;
+    > * + * {
+      border-top: 1px solid var(--border);
+    }
+  }
+  &Totals {
+    margin-top: 16px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+  }
+  &TotalRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &--grand {
+      border-top: 1px solid var(--border);
+      padding-top: 8px;
+      font-size: 16px;
+
+      .coTotalLabel {
+        font-weight: 700;
+        color: var(--foreground);
+      }
+      .coTotalValue {
+        font-weight: 700;
+        color: var(--color-brand);
+      }
+    }
+  }
+  &TotalLabel {
+    font-family: var(--font-bn);
+    color: var(--foreground-soft);
+  }
+  &TotalValue {
+    font-weight: 600;
+    color: var(--foreground);
+  }
+
+  &Pay {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  &PayOption {
+    display: flex;
+    gap: 12px;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition:
+      border-color var(--transition-fast),
+      background-color var(--transition-fast);
+
+    input {
+      margin-top: 2px;
+      accent-color: var(--color-brand);
+    }
+    &--active {
+      border-color: var(--color-brand);
+      background: rgba(255, 0, 0, 0.05);
+    }
+  }
+  &PayName {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--foreground);
+    svg {
+      width: 16px;
+      height: 16px;
+      color: var(--color-brand);
+    }
+  }
+  &PaySub {
+    margin-top: 2px;
+    display: block;
+    font-size: 12px;
+    color: var(--foreground-soft);
+
+    &--bn {
+      font-family: var(--font-bn);
+    }
+  }
+
+  &Confirm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 56px;
+    width: 100%;
+    border: 0;
+    border-radius: var(--radius-md);
+    background: var(--color-brand);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+    &:hover {
+      background: var(--color-brand-dark);
+    }
+  }
+  &ConfirmLabel {
+    font-family: var(--font-bn);
+  }
+
+  /* Order placed */
+  &Success {
+    max-width: 42rem;
+    margin-inline: auto;
+    padding: 48px 16px;
+  }
+  &SuccessCard {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: #fff;
+    padding: 32px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+  &SuccessIcon {
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--color-success-dark);
+    svg {
+      width: 36px;
+      height: 36px;
+    }
+  }
+  &SuccessTitle {
+    margin-top: 16px;
+    font-family: var(--font-bn);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--foreground);
+  }
+  &SuccessText {
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--foreground-soft);
+  }
+  &SuccessMeta {
+    margin-top: 24px;
+    margin-inline: auto;
+    max-width: 24rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: var(--radius-md);
+    background: var(--color-cream);
+    padding: 16px;
+    font-size: 14px;
+  }
+  &SuccessRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &SuccessRowLabel {
+    color: var(--foreground-soft);
+  }
+  &SuccessRowValue {
+    font-weight: 600;
+    color: var(--foreground);
+
+    &--total {
+      color: var(--color-brand);
+    }
+  }
+  &SuccessBtn {
+    margin-top: 24px;
+  }
+}

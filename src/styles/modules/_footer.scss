@@ -1,0 +1,177 @@
+@use "../abstracts/mixins" as m;
+
+/* ============================================================ Footer */
+
+.ft {
+  margin-top: 64px;
+  border-top: 1px solid var(--border);
+  background: #fff;
+
+  &Inner {
+    display: grid;
+    gap: 40px;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding: 48px 16px;
+
+    @include m.respond(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include m.respond(lg) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &Tagline {
+    margin-top: 12px;
+    max-width: 20rem;
+    font-size: 14px;
+    color: var(--foreground-soft);
+  }
+
+  &Heading {
+    margin-top: 24px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--foreground);
+  }
+
+  &Title {
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--foreground);
+
+    span {
+      display: block;
+      margin-top: 8px;
+      width: 32px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-brand);
+    }
+  }
+
+  &List {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--foreground-soft);
+  }
+
+  &Link {
+    color: inherit;
+    &:hover {
+      color: var(--color-brand);
+    }
+  }
+
+  &Contact {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--foreground-soft);
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: inherit;
+      &:hover {
+        color: var(--color-brand);
+      }
+    }
+    svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      color: var(--color-brand);
+    }
+  }
+
+  &Address {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    svg {
+      margin-top: 2px;
+    }
+  }
+
+  &Social {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &SocialLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--color-cream);
+    color: var(--foreground-soft);
+    transition:
+      background-color var(--transition-fast),
+      color var(--transition-fast);
+
+    &:hover {
+      background: var(--color-brand);
+      color: #fff;
+    }
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &Pay {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &PayChip {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: #fff;
+    padding: 6px 10px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  &Note {
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--foreground-soft);
+  }
+
+  &Bottom {
+    border-top: 1px solid var(--border);
+  }
+
+  &BottomInner {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding: 20px 16px;
+    font-size: 12px;
+    color: var(--foreground-soft);
+
+    @include m.respond(sm) {
+      flex-direction: row;
+    }
+  }
+}

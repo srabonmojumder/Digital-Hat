@@ -1,0 +1,6 @@
+/* Generic page wrapper — centered max-width column. */
+.page {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: 24px 16px;
+}

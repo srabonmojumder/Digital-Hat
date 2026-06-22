@@ -1,0 +1,94 @@
+@use "../abstracts/mixins" as m;
+
+/* ============================================================
+   Announcement bar — thin offer strip + hotline.
+   Mobile shows a seamless marquee; sm+ shows static offer + hotline.
+   ============================================================ */
+
+.annc {
+  background: var(--foreground);
+  color: #fff;
+
+  &Inner {
+    display: flex;
+    align-items: center;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding: 8px 16px;
+    font-size: 12px;
+
+    @include m.respond(sm) {
+      justify-content: space-between;
+    }
+  }
+
+  &Offer {
+    display: none;
+    color: rgba(255, 255, 255, 0.9);
+
+    @include m.respond(sm) {
+      display: block;
+    }
+  }
+
+  &Hotline {
+    display: none;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+
+    @include m.respond(sm) {
+      display: flex;
+    }
+
+    a {
+      color: inherit;
+      &:hover {
+        color: var(--color-brand);
+      }
+    }
+
+    svg {
+      width: 14px;
+      height: 14px;
+      color: var(--color-brand);
+    }
+  }
+
+  &Ticker {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+
+    @include m.respond(sm) {
+      display: none;
+    }
+  }
+}
+
+@keyframes dh-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.anncMarquee {
+  display: flex;
+  flex-shrink: 0;
+  gap: 48px;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.9);
+  animation: dh-marquee 20s linear infinite;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+
+  @include m.respond(md) {
+    animation-duration: 28s;
+  }
+}

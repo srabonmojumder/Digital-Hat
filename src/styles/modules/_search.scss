@@ -1,0 +1,57 @@
+@use "../abstracts/mixins" as m;
+
+/* ============================================================ Search bar */
+
+.search {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  &Input {
+    height: 44px;
+    width: 100%;
+    border: 1px solid var(--border);
+    border-right: 0;
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+    padding: 0 16px;
+    font-size: 14px;
+    color: var(--foreground);
+    outline: none;
+    transition: border-color var(--transition-fast);
+
+    &::placeholder {
+      color: var(--foreground-soft);
+    }
+    &:focus {
+      border-color: var(--color-brand);
+    }
+  }
+
+  &Btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    height: 44px;
+    padding: 0 16px;
+    border: 0;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    background: var(--color-brand);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+
+    &:hover {
+      background: var(--color-brand-dark);
+    }
+  }
+
+  &BtnLabel {
+    display: none;
+    @include m.respond(sm) {
+      display: inline;
+    }
+  }
+}

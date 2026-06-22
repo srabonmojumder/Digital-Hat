@@ -1,0 +1,185 @@
+@use "../abstracts/mixins" as m;
+
+/* ============================================================ About page */
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  &Intro {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--foreground-soft);
+    span {
+      color: var(--foreground);
+      font-weight: 500;
+    }
+  }
+
+  &Card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    @include m.respond(sm) {
+      padding: 24px;
+    }
+  }
+  &CardHead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  &CardTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--foreground);
+  }
+  &Badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 999px;
+    background: rgba(34, 197, 94, 0.1);
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-success-dark);
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &Dl {
+    margin-top: 16px;
+  }
+  &Row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 0;
+
+    @include m.respond(sm) {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    & + & {
+      border-top: 1px solid var(--border);
+    }
+  }
+  &RowLabel {
+    font-size: 14px;
+    color: var(--foreground-soft);
+  }
+  &RowValue {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--foreground);
+    @include m.respond(sm) {
+      text-align: right;
+    }
+  }
+
+  &SectionTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--foreground);
+  }
+  &Team {
+    margin-top: 16px;
+    display: grid;
+    gap: 16px;
+    @include m.respond(sm) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  &Member {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 16px;
+  }
+  &MemberAvatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 0, 0, 0.1);
+    color: var(--color-brand);
+    font-size: 14px;
+    font-weight: 700;
+  }
+  &MemberName {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--foreground);
+  }
+  &MemberRole {
+    font-size: 12px;
+    color: var(--foreground-soft);
+  }
+
+  &Grid2 {
+    display: grid;
+    gap: 16px;
+    @include m.respond(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  &Box {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+  }
+  &BoxTitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--foreground);
+  }
+  &Contact {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--foreground-soft);
+    a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      &:hover {
+        color: var(--color-brand);
+      }
+    }
+    svg {
+      width: 16px;
+      height: 16px;
+      color: var(--color-brand);
+    }
+  }
+  &Address {
+    margin-top: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--foreground-soft);
+    svg {
+      width: 16px;
+      height: 16px;
+      color: var(--color-brand);
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+  }
+}

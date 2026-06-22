@@ -1,0 +1,74 @@
+@use "../abstracts/mixins" as m;
+
+/* ============================================================ Homepage */
+
+.home {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: 0 16px;
+
+  &Hero {
+    padding-top: 20px;
+  }
+
+  &Features {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+
+    @include m.respond(sm) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &Feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+  }
+
+  &FeatureIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 0, 0, 0.1);
+    color: var(--color-brand);
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &FeatureBody {
+    min-width: 0;
+  }
+  &FeatureTitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--foreground);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &FeatureSub {
+    font-family: var(--font-bn);
+    font-size: 12px;
+    color: var(--foreground-soft);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &Tail {
+    height: 24px;
+  }
+}

@@ -1,0 +1,25 @@
+// Fluid container helpers (mirrors the house-style container scale).
+// Components mostly use Tailwind's `max-w-7xl mx-auto px-4`; these remain
+// available for SCSS-driven layouts.
+
+.container,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl {
+  width: min(100% - 2rem, var(--container));
+  margin-inline: auto;
+}
+
+.container-sm {
+  --container: 768px;
+}
+.container-md {
+  --container: 992px;
+}
+.container-lg {
+  --container: 1200px;
+}
+.container-xl {
+  --container: 1400px;
+}

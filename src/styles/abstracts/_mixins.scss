@@ -1,0 +1,43 @@
+@use "sass:map";
+@use "./tokens" as *;
+
+/// Min-width media query. Usage: `@include respond(md) { ... }`
+@mixin respond($breakpoint) {
+  @media (min-width: map.get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+@mixin transition($properties...) {
+  transition: $properties;
+}
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/// Apply a named z-index from the $z-layers scale.
+@mixin z($layer) {
+  z-index: map.get($z-layers, $layer);
+}

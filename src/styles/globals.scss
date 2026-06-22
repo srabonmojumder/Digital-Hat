@@ -1,0 +1,69 @@
+// Digital Hat — SCSS entry point (7-1 architecture).
+//
+// Tailwind config + the brand colour `@theme` live in src/app/globals.css.
+// This file wires the authored base / layout / module partials and declares
+// the runtime design tokens (CSS custom properties) for the system.
+
+@use "base/reset";
+@use "base/typography";
+@use "layout/container";
+@use "layout/utilities";
+@use "layout/page";
+@use "components/buttons";
+@use "components/price";
+@use "components/forms";
+@use "components/breadcrumb";
+@use "components/quantity";
+@use "components/empty-state";
+@use "components/section-header";
+@use "components/product-image";
+@use "components/prose";
+@use "components/logo";
+@use "modules/announcement";
+@use "modules/product-card";
+@use "modules/search";
+@use "modules/header";
+@use "modules/mega-menu";
+@use "modules/mobile-nav";
+@use "modules/footer";
+@use "modules/login";
+@use "modules/static";
+@use "modules/hero";
+@use "modules/product-gallery";
+@use "modules/product-detail";
+@use "modules/product-carousel";
+@use "modules/cart-line";
+@use "modules/home";
+@use "modules/listing";
+@use "modules/cart";
+@use "modules/checkout";
+@use "modules/about";
+@use "components/product-grid";
+
+:root {
+  // Semantic aliases → bridge to Tailwind @theme colour tokens
+  --surface: #ffffff;
+  --foreground: var(--color-ink);
+  --foreground-soft: var(--color-muted);
+  --border: var(--color-line);
+
+  // Elevation
+  --shadow-sm: 0 1px 2px rgba(2, 8, 23, 0.06);
+  --shadow-md: 0 10px 30px rgba(2, 8, 23, 0.08);
+  --shadow-lg: 0 18px 48px rgba(2, 8, 23, 0.12);
+
+  // Radii (spec: 8px base)
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  // Layout
+  --container: 80rem;
+  --header-height: 64px;
+  --section-space: 64px;
+
+  // Motion
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+}

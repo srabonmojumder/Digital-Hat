@@ -1,0 +1,146 @@
+@use "../abstracts/mixins" as m;
+
+/* ============================================================ Mobile nav drawer */
+
+.mnav {
+  @include m.respond(lg) {
+    display: none;
+  }
+
+  &Overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background: rgba(2, 8, 23, 0.4);
+    transition: opacity 0.3s ease;
+
+    &--closed {
+      opacity: 0;
+      pointer-events: none;
+    }
+    &--open {
+      opacity: 1;
+    }
+  }
+
+  &Panel {
+    position: fixed;
+    inset-block: 0;
+    left: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    width: 84%;
+    max-width: 24rem;
+    background: #fff;
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.3s ease;
+
+    &--closed {
+      transform: translateX(-100%);
+    }
+    &--open {
+      transform: translateX(0);
+    }
+  }
+
+  &Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  &Close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    color: var(--foreground);
+    &:hover {
+      background: var(--color-cream);
+    }
+  }
+
+  &Body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px;
+  }
+
+  &List {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  &Link {
+    display: block;
+    padding: 8px 12px;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    color: var(--foreground);
+    transition:
+      background-color var(--transition-fast),
+      color var(--transition-fast);
+
+    &:hover {
+      background: var(--color-cream);
+      color: var(--color-brand);
+    }
+
+    &--top {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    &--accent {
+      color: var(--color-brand);
+    }
+  }
+
+  &Toggle {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--foreground);
+    &:hover {
+      background: var(--color-cream);
+    }
+    svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.2s ease;
+    }
+
+    &--sub {
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+  }
+
+  &Chevron--open {
+    transform: rotate(180deg);
+  }
+
+  &Submenu {
+    margin-left: 12px;
+    margin-top: 2px;
+    padding-left: 8px;
+    border-left: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+}

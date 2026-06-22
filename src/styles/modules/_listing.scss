@@ -1,0 +1,55 @@
+@use "../abstracts/mixins" as m;
+
+/* ============================================================ Listing (category / search) */
+
+.listing {
+  &Head {
+    margin-top: 24px;
+  }
+
+  &Title {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--foreground);
+
+    @include m.respond(sm) {
+      font-size: 30px;
+    }
+
+    &--upper {
+      text-transform: uppercase;
+    }
+  }
+
+  &TitleQuery {
+    color: var(--color-brand);
+  }
+
+  &Accent {
+    display: block;
+    margin-top: 8px;
+    width: 48px;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--color-brand);
+  }
+
+  &Desc {
+    margin-top: 12px;
+    max-width: 42rem;
+    font-family: var(--font-bn);
+    font-size: 14px;
+    color: var(--foreground-soft);
+  }
+
+  &Count {
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--foreground-soft);
+  }
+
+  &Body {
+    margin-top: 24px;
+  }
+}

@@ -1,0 +1,50 @@
+/* ============================================================
+   Empty state — icon + title + message + action button.
+   ============================================================ */
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 24px;
+  text-align: center;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  background: rgba(250, 250, 250, 0.6);
+
+  &Icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--foreground-soft);
+    box-shadow: var(--shadow-sm);
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &Title {
+    margin-top: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--foreground);
+  }
+
+  &Text {
+    margin-top: 4px;
+    max-width: 24rem;
+    font-size: 14px;
+    color: var(--foreground-soft);
+  }
+
+  &Btn {
+    margin-top: 20px;
+  }
+}

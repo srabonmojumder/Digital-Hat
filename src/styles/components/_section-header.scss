@@ -1,0 +1,27 @@
+@use "../abstracts/mixins" as m;
+
+/* ============================================================
+   Section header — red left-accent title + optional "See All".
+   ============================================================ */
+
+.secHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.secTitle {
+  padding-left: 12px;
+  border-left: 4px solid var(--color-brand);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+
+  @include m.respond(sm) {
+    font-size: 20px;
+  }
+}

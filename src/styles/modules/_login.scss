@@ -1,0 +1,97 @@
+/* ============================================================ Login dropdown */
+
+.login {
+  width: 320px;
+  max-width: calc(100vw - 2rem);
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: #fff;
+  box-shadow: var(--shadow-lg);
+
+  &Title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--foreground);
+  }
+  &Sub {
+    margin-top: 2px;
+    font-size: 12px;
+    color: var(--foreground-soft);
+  }
+
+  &Form {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &Pw {
+    position: relative;
+
+    .input {
+      padding-right: 40px;
+    }
+  }
+  &Eye {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--foreground-soft);
+    &:hover {
+      color: var(--foreground);
+    }
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &Links {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+  }
+  &Link {
+    color: var(--foreground-soft);
+    &:hover {
+      color: var(--color-brand);
+    }
+    b {
+      color: var(--color-brand);
+      font-weight: 500;
+    }
+  }
+
+  &Track {
+    margin-top: 16px;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--color-cream);
+
+    &Title {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--foreground);
+      svg {
+        width: 16px;
+        height: 16px;
+        color: var(--color-brand);
+      }
+    }
+    &Form {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+}
