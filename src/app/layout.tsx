@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Poppins, Hind_Siliguri } from "next/font/google";
-import "./globals.css";
 import "@/styles/globals.scss";
 import { Providers } from "@/components/Providers";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";

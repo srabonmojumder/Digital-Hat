@@ -1,8 +1,7 @@
 // Digital Hat — SCSS entry point (7-1 architecture).
 //
-// Tailwind config + the brand colour `@theme` live in src/app/globals.css.
-// This file wires the authored base / layout / module partials and declares
-// the runtime design tokens (CSS custom properties) for the system.
+// Pure SCSS, no Tailwind. Design tokens are CSS custom properties declared in
+// `:root` below; the @use'd partials consume them via var(--token).
 
 @use "base/reset";
 @use "base/typography";
@@ -19,6 +18,7 @@
 @use "components/product-image";
 @use "components/prose";
 @use "components/logo";
+@use "components/product-grid";
 @use "modules/announcement";
 @use "modules/product-card";
 @use "modules/search";
@@ -38,10 +38,29 @@
 @use "modules/cart";
 @use "modules/checkout";
 @use "modules/about";
-@use "components/product-grid";
 
 :root {
-  // Semantic aliases → bridge to Tailwind @theme colour tokens
+  // Brand palette (strict) — RED is the single dominant accent
+  --color-brand: #ff0000;
+  --color-brand-dark: #e00000;
+  --color-action: #3b82f6;
+  --color-action-dark: #2563eb;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #1ebe5a;
+  --color-success: #22c55e;
+  --color-success-dark: #16a34a;
+  --color-ink: #020817;
+  --color-muted: #64748b;
+  --color-line: #e2e8f0;
+  --color-strike: #94a3b8;
+  --color-cream: #fafafa;
+
+  // Typography — Poppins (Latin) + Hind Siliguri (Bangla), from next/font
+  --font-sans: var(--font-poppins), var(--font-hind), ui-sans-serif, system-ui,
+    sans-serif;
+  --font-bn: var(--font-hind), var(--font-poppins), sans-serif;
+
+  // Semantic aliases
   --surface: #ffffff;
   --foreground: var(--color-ink);
   --foreground-soft: var(--color-muted);
