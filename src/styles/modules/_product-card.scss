@@ -15,6 +15,10 @@
   &:hover {
     box-shadow: var(--shadow-lg);
   }
+
+  &:hover .pcMediaImg--hover {
+    opacity: 1;
+  }
 }
 
 .pcMedia {
@@ -27,6 +31,12 @@
     inset: 0;
     height: 100%;
     width: 100%;
+  }
+
+  // Second photo, revealed on card hover.
+  &Img--hover {
+    opacity: 0;
+    transition: opacity 0.45s ease;
   }
 }
 

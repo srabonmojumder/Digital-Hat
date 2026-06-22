@@ -49,6 +49,13 @@ export function ProductCard({ product }: { product: Product }) {
           name={product.name}
           className="pcMediaImg"
         />
+        <ProductImage
+          seed={product.imageSeed}
+          category={product.categorySlug}
+          name={product.name}
+          variant={1}
+          className="pcMediaImg pcMediaImg--hover"
+        />
         {discount && !outOfStock && (
           <span className="pcBadge">{discount}% Off</span>
         )}

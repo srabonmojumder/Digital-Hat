@@ -5,6 +5,15 @@
     overflow: hidden;
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
+    cursor: zoom-in;
+
+    // Zoom the photo in on hover.
+    .pimgPhoto {
+      transition: transform 0.45s ease;
+    }
+    &:hover .pimgPhoto {
+      transform: scale(1.12);
+    }
   }
   &MainImg {
     aspect-ratio: 1 / 1;
